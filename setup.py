@@ -3,7 +3,7 @@ from setuptools import setup
 setup(
     name='socialagent',
     version='0.1',
-    description='The "socialagent" Python module enables the generation of user agents for various Meta (formerly Facebook) platform applications.',
+    description='socialagent is a Python module designed for generating user agents specific to social media platforms under Meta (formerly Facebook).',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
     author='Moh Iqbal Hidayat',
