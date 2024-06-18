@@ -28,6 +28,15 @@ class socialagent:
         device_version = device_version or random.choice(self.device_version)
         return f'Dalvik/2.1.0 (Linux; U; Android {device_version}; {device_model} Build/{device_build})'
     
+    def chrome(self, webview=False, device_model=None, device_version=None, chrome_version=None):
+        device = random.choice(list(self.device.keys()))
+        device_build = f'{random.choice(self.device_build)}.{str(random.randint(200999,220905))}.0{random.choice(["01","02","03","04","05","06","07","08","09","10","11","12"])}'
+        device_model = device_model or random.choice(self.device[device])
+        device_version = device_version or random.choice(self.device_version)
+        chrome_version = chrome_version or f'{str(random.randint(80,112))}.0.{str(random.randint(2024,3058))}.0{str(random.randint(10,99))}'
+        if webview: return f'Mozilla/5.0 (Linux; Android {device_version}; {device_model} Build/{device_build}; wv) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{chrome_version} Mobile Safari/537.36'
+        else: return f'Mozilla/5.0 (Linux; Android {device_version}; {device_model}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{chrome_version} Mobile Safari/537.36'
+    
     def threads(self, device=None, device_dpi=None, device_model=None, device_vendor=None, device_version=None, device_language=None, threads_code=None, threads_version=None):
         device = device if device in list(self.device.keys()) else random.choice(list(self.device.keys()))
         device_dpi = device_dpi or random.choice(self.device_dpi)
