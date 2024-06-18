@@ -25,8 +25,30 @@ print(dalvik_user_agent)
 device_model = 'SM-A105G' # default None -> random
 device_version = '9' # default None -> random
 
-dalvik_user_agent = ua.dalvik(device_model=device_model, device_version=device_version)
+dalvik_user_agent = ua.dalvik(device_model=device_model,
+                              device_version=device_version)
 print(dalvik_user_agent)
+```
+## chrome user agent
+generate chrome user agent
+```python
+from socialagent import socialagent
+
+ua = socialagent()
+
+# generate chrome user agent
+chrome_user_agent = ua.chrome()
+print(chrome_user_agent)
+
+# generate chrome user agent with custom parameters
+webview = True # default False
+device_model = 'SM-A105G' # default None -> random
+device_version = '9' # default None -> random
+chrome_version = '83.0.4103.101' # default None -> random
+
+chrome_user_agent = ua.chrome(webview=webview, device_model=device_model,
+                              device_version=device_version, chrome_version=chrome_version)
+print(chrome_user_agent)
 ```
 ## threads user agent
 generate threads user agent
@@ -109,8 +131,8 @@ instagram_code = '521858775' # default None -> random
 instagram_version = '303.0.0.22.112' # default None -> random
 
 instagram_user_agent = ua.instagram(device=device, device_model=device_model, device_dpi=device_dpi, 
-                                device_vendor=device_vendor, device_version=device_version, 
-                                device_language=device_language, instagram_code=instagram_code, 
-                                instagram_version=instagram_version)
+                                    device_vendor=device_vendor, device_version=device_version, 
+                                    device_language=device_language, instagram_code=instagram_code, 
+                                    instagram_version=instagram_version)
 print(instagram_user_agent)
 ```
