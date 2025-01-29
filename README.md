@@ -5,134 +5,155 @@ install using pip
 ```bash
 pip install socialagent
 ```
-## example usage
-importing socialagent
+## socialagent
+importing
 ```python
-from socialagent import socialagent
+import socialagent
 ```
-## dalvik user agent
+## device
+generate device for user agent
+```python
+# random
+device = socialagent.device()
+
+# custom (parameters)
+default = True # default: False -> random
+brand = 'INFINIX' # default: None -> random
+country = 'ID' # default: None -> random
+
+device = socialagent.device(default=default, brand=brand, country=country)
+print(device)
+```
+output (type: dict/dictionary)
+```bash
+{'device': {'brand': 'INFINIX', 'build': 'SP1A.201789.008', 'board': 'Infinix-X6515', 'model': 'Infinix X6515', 'vendor': 'mt6761', 'version': '12', 'sdk': '31', 'sim': 'XL', 'dpi': '480dpi; 1344x2772', 'number': '62', 'country': 'ID', 'armeabi': 'armeabi-v7a:armeabi', 'density': '{density=2.0,width=720,height=1193}', 'language': 'id_ID'}}
+```
+## dalvik
 generate dalvik user agent
 ```python
-from socialagent import socialagent
+# random
+dalvik = socialagent.dalvik()
 
-ua = socialagent()
-
-# generate dalvik user agent
-dalvik_user_agent = ua.dalvik()
-print(dalvik_user_agent)
-
-# generate dalvik user agent with custom parameters
-device_model = 'SM-A105G' # default None -> random
+# custom
+default = True # default: False -> random
+device_brand = 'Xiaomi' # default None -> random
+device_build = 'RKQ1.210790.008' # default None -> random
+device_model = 'Redmi 6' # default None -> random
 device_version = '9' # default None -> random
 
-dalvik_user_agent = ua.dalvik(device_model=device_model,
-                              device_version=device_version)
-print(dalvik_user_agent)
+dalvik = socialagent.dalvik(default=default, device_brand=device_brand, device_build=device_build, device_model=device_model, device_version=device_version)
+print(dalvik)
 ```
-## chrome user agent
+output (type: str/string)
+```bash
+'Dalvik/2.1.0 (Linux; U; Android 9; Redmi 6 Build/RKQ1.210790.008)'
+```
+## chrome
 generate chrome user agent
 ```python
-from socialagent import socialagent
+# random
+chrome = socialagent.chrome()
 
-ua = socialagent()
+# custom
+default = True # default: False -> random
+webview = True # default: False
+device_brand = 'Xiaomi' # default None -> random
+device_build = 'SKQ1.211019.001' # default None -> random
+device_model = 'Redmi Note 9 Pro' # default None -> random
+device_version = '12' # default None -> random
+chrome_version = '111.0.2679.062' # default: None -> random
 
-# generate chrome user agent
-chrome_user_agent = ua.chrome()
-print(chrome_user_agent)
-
-# generate chrome user agent with custom parameters
-webview = True # default False
-device_model = 'SM-A105G' # default None -> random
-device_version = '9' # default None -> random
-chrome_version = '83.0.4103.101' # default None -> random
-
-chrome_user_agent = ua.chrome(webview=webview, device_model=device_model,
-                              device_version=device_version, chrome_version=chrome_version)
-print(chrome_user_agent)
+chrome = socialagent.chrome(default=default, webview=webview, device_brand=device_brand, device_build=device_build, device_model=device_model, device_version=device_version)
+print(chrome)
 ```
-## threads user agent
+output (type: str/string)
+```bash
+'Mozilla/5.0 (Linux; Android 12; Redmi Note 9 Pro Build/SKQ1.211019.001) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.2679.062 Mobile Safari/537.36'
+```
+## threads
 generate threads user agent
 ```python
-from socialagent import socialagent
+# random
+threads = socialagent.threads()
 
-ua = socialagent()
+# custom
+default = True  # default: False -> random
+device_sdk = '33'  # default None -> random
+device_dpi = '480dpi; 1080x2400'  # default None -> random
+device_brand = 'Samsung'  # default None -> random
+device_board = 'exynos'  # default None -> random
+device_model = 'Galaxy S21'  # default None -> random
+device_vendor = 'Exynos'  # default None -> random
+device_version = '13'  # default None -> random
+device_language = 'en_US'  # default None -> random
+threads_code = '667551319'  # default None -> random
+threads_version = '359.0.0.61.109'  # default None -> random
 
-# generate threads user agent
-threads_user_agent = ua.threads()
-print(threads_user_agent)
-
-# generate threads user agent with custom parameters
-device = 'samsung' # default None -> random
-device_model = 'SM-A105G' # default None -> random
-device_dpi = '480dpi; 1080x2400' # default None -> random
-device_vendor = 'qcom' # default None -> random
-device_version = '9' # default None -> random
-device_language = 'en_US' # default None -> random
-threads_code = '521858775' # default None -> random
-threads_version = '303.0.0.22.112' # default None -> random
-
-threads_user_agent = ua.threads(device=device, device_model=device_model, device_dpi=device_dpi, 
-                                device_vendor=device_vendor, device_version=device_version, 
-                                device_language=device_language, threads_code=threads_code, 
-                                threads_version=threads_version)
-print(threads_user_agent)
+threads = socialagent.threads(default=default, device_sdk=device_sdk, device_dpi=device_dpi, device_brand=device_brand, device_board=device_board, device_model=device_model, device_vendor=device_vendor, device_version=device_version, device_language=device_language, threads_code=threads_code, threads_version=threads_version)
+print(threads)
 ```
-## facebook user agent
+output (type: str/string)
+```bash
+'Barcelona 359.0.0.61.109 Android (33/13; 480dpi; 1080x2400; Samsung; Galaxy S21; exynos; Exynos; en_US; 667551319)'
+```
+## facebook
 generate facebook user agent
 ```python
-from socialagent import socialagent
+# random
+facebook = socialagent.facebook()
 
-ua = socialagent()
+# custom
+default = True  # default: False -> random
+dalvik = True  # default: False
+device_sdk = '33'  # default None -> random
+device_sim = 'Telkomsel'  # default None -> random
+device_dpi = '480dpi; 1080x2400'  # default None -> random
+device_brand = 'Samsung'  # default None -> random
+device_board = 'exynos'  # default None -> random
+device_model = 'Galaxy S21'  # default None -> random
+device_vendor = 'Exynos'  # default None -> random
+device_version = '13'  # default None -> random
+device_armeabi = 'arm64-v8a'  # default None -> random
+device_density = '{density=3.0,width=1080,height=1920}'  # default None -> random
+device_language = 'en_US'  # default None -> random
+facebook_code = '543547945'  # default None -> random
+facebook_version = '443.0.0.23.229'  # default None -> random
+facebook_package = 'com.facebook.katana'  # default None -> default package
 
-# generate facebook user agent
-facebook_user_agent = ua.facebook()
-print(facebook_user_agent)
-
-# generate facebook user agent with custom parameters
-dalvik = True # default False
-device = 'samsung' # default None -> random
-device_model = 'SM-A105G' # default None -> random
-device_version = '9' # default None -> random
-device_armeabi = 'armeabi-v7a' # default None -> random
-device_density = '{density=3.0,width=1080,height=2068}' # default None -> random
-device_language = 'en_US' # default None -> random
-device_operator = 'AIRTEL' # default None -> random
-facebook_code = '521858775' # default None -> random
-facebook_build = '332957647' # default None -> random
-facebook_version = '345.0.0.34.118' # default None -> random
-facebook_package = 'com.facebook.katana' # default None -> random
-
-facebook_user_agent = ua.facebook(dalvik=dalvik, device=device, device_model=device_model, device_version=device_version, 
-                                  device_armeabi=device_armeabi, device_density=device_density, 
-                                  device_language=device_language, device_operator=device_operator, 
-                                  facebook_code=facebook_code, facebook_build=facebook_build, 
-                                  facebook_version=facebook_version, facebook_package=facebook_package)
-print(facebook_user_agent)
+facebook = socialagent.facebook(default=default, dalvik=dalvik, device_sdk=device_sdk, device_sim=device_sim, device_dpi=device_dpi, device_brand=device_brand, device_board=device_board, device_model=device_model, device_vendor=device_vendor, device_version=device_version, device_armeabi=device_armeabi, device_density=device_density, device_language=device_language, facebook_code=facebook_code, facebook_version=facebook_version, facebook_package=facebook_package)
+print(facebook)
 ```
-## instagram user agent
+output for ```dalvik = True``` (type: str/string)
+```bash
+'Dalvik/2.1.0 (Linux; U; Android 13; Galaxy S21 Build/SKQ1.211019.001) [FBAN/FB4A;FBAV/443.0.0.23.229;FBBV/543547945;FBDM/{density=3.0,width=1080,height=1920};FBLC/en_US;FBRV/0;FBCR/Telkomsel;FBMF/Samsung;FBBD/Samsung;FBPN/com.facebook.katana;FBDV/Galaxy S21;FBSV/13;FBOP/1;FBCA/arm64-v8a:;]'
+```
+output for ```dalvik = False``` (type: str/string)
+```bash
+'[FBAN/FB4A;FBAV/443.0.0.23.229;FBBV/543547945;FBDM/{density=3.0,width=1080,height=1920};FBLC/en_US;FBRV/0;FBCR/Telkomsel;FBMF/Samsung;FBBD/Samsung;FBPN/com.facebook.katana;FBDV/Galaxy S21;FBSV/13;FBOP/1;FBCA/arm64-v8a:;]'
+```
+## instagram
 generate instagram user agent
 ```python
-from socialagent import socialagent
+# random
+instagram = socialagent.instagram()
 
-ua = socialagent()
+# custom
+default = True  # default: False -> random
+device_sdk = '33'  # default None -> random
+device_dpi = '480dpi; 1080x2400'  # default None -> random
+device_brand = 'Samsung'  # default None -> random
+device_board = 'exynos'  # default None -> random
+device_model = 'Galaxy S21'  # default None -> random
+device_vendor = 'Exynos'  # default None -> random
+device_version = '13'  # default None -> random
+device_language = 'en_US'  # default None -> random
+instagram_code = '554218546'  # default None -> random
+instagram_version = '313.0.0.26.328'  # default None -> random
 
-# generate instagram user agent
-instagram_user_agent = ua.instagram()
-print(instagram_user_agent)
-
-# generate instagram user agent with custom parameters
-device = 'samsung' # default None -> random
-device_model = 'SM-A105G' # default None -> random
-device_dpi = '480dpi; 1080x2400' # default None -> random
-device_vendor = 'qcom' # default None -> random
-device_version = '9' # default None -> random
-device_language = 'en_US' # default None -> random
-instagram_code = '521858775' # default None -> random
-instagram_version = '303.0.0.22.112' # default None -> random
-
-instagram_user_agent = ua.instagram(device=device, device_model=device_model, device_dpi=device_dpi, 
-                                    device_vendor=device_vendor, device_version=device_version, 
-                                    device_language=device_language, instagram_code=instagram_code, 
-                                    instagram_version=instagram_version)
-print(instagram_user_agent)
+instagram = socialagent.instagram(default=default, device_sdk=device_sdk, device_dpi=device_dpi, device_brand=device_brand, device_board=device_board, device_model=device_model, device_vendor=device_vendor, device_version=device_version, device_language=device_language, instagram_code=instagram_code, instagram_version=instagram_version)
+print(instagram)
+```
+output (type: str/string)
+```bash
+'Instagram 313.0.0.26.328 Android (33/13; 480dpi; 1080x2400; Samsung; Galaxy S21; exynos; Exynos; en_US; 554218546)'
 ```
