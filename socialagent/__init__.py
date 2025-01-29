@@ -1,2 +1,1 @@
-from .socialagent import socialagent
-__all__ = ['socialagent']
+from socialagent import socialagent, device, dalvik, chrome, threads, facebook, instagram
